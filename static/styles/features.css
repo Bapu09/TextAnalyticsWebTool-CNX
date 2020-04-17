@@ -1,0 +1,43 @@
+header {
+	background: #142B65;
+	color: #FFF;
+	margin-bottom: 2em;
+}
+header .navbar-brand {
+	color: #FFF;
+	font-weight: bold;
+	fonts-ze: 0.5rem;
+}
+#left-panel .card {
+	margin-bottom: 10px;
+	box-shadow: 6px 8px 9px -3px #142B65;;
+}
+#left-panel .card-title {
+	font-size: 14px;
+	padding: 8px 15px;
+	border-bottom: 1px solid #142B65;
+	margin-bottom: 0;
+	color: #142B65;
+}
+#left-panel .card-body {
+	padding: 0.4rem;
+	font-size: 12px;
+}
+#left-panel .card-body p {
+	margin-bottom: 0.4rem;
+}
+#left-panel .card-body .btn {
+	font-size: 12px;
+    padding: 3px 5px;
+	background: #142B65;
+}
+.btn-group .form-control {
+	margin-right: 10px;
+}
+.video {
+	width: 100%;
+	max-width: 100%;
+}
+.action-area {
+	margin-bottom: 15px;
+}

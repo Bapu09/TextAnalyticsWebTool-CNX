@@ -1,0 +1,182 @@
+<html>
+	<head>
+		<title>PACE - CAS Platform</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="../static/styles/features.css" />
+		
+		<script src="https://kit.fontawesome.com/93cd4d0f0f.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>  
+	</head>
+	<body>
+		<header>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12"><a class="navbar-brand mr-0 mr-md-2" href="features.html" aria-label="Features">PACE</a></div>
+				</div>
+			</div>
+		</header>
+		<section id="landing-page" class="">
+			<div class="container-fluid">
+				<div class="row">
+					<aside class="col-md-4" id="left-panel">
+						<div class="card">
+							<h5 class="card-title text-center">Text Analytics Documentation</h5>
+							<div class="card-body">
+								<p>Too much data to process in a timely fashion? Not enough skills to turn unstructured data into insight?</p>
+								<button class="btn btn-primary btn-cs">Explore More</button>
+							</div>
+						</div><!-- .card -->
+						<div class="card">
+							<h5 class="card-title text-center">Overview</h5>
+							<div class="card-body">
+								<p>Difficulty visualising the outputs of text analysis? Trouble creating interactive dashboards for your use case?</p>
+								<button class="btn btn-primary btn-cs">Explore More</button>
+							</div>
+						</div><!-- .card -->
+						<div class="card">
+							<h5 class="card-title text-center">Features</h5>
+							<div class="card-body">
+								<p>PACE enables advanced analysis and monitoring of text (emails, chats, Surveys and social data) alongside your structured data (e.g. CRM cases).</p>
+								<button class="btn btn-primary btn-cs" data-target="#feature-page">Explore More</button>
+							</div>
+						</div><!-- .card -->
+						<div class="card">
+							<h5 class="card-title text-center">Pricing</h5>
+							<div class="card-body">
+								<p>PACE automatically analyses 100% of your data using NLP to derive actionable recomdendations on agent performance , transactional drivers and CSAT improvements, etc.</p>
+								<button class="btn btn-primary btn-cs">Explore More</button>
+							</div>
+						</div><!-- .card -->
+						<div class="card">
+							<h5 class="card-title text-center">FAQs</h5>
+							<div class="card-body">
+								<p>For full 360 view of operations, perform sentimate analysis (not emotion or contextual)</p>
+								<p>Enables automated workflows which drive actionable insight & efficiency.</p>
+								<button class="btn btn-primary btn-cs">Explore More</button>
+							</div>
+						</div><!-- .card -->
+					</aside>
+					<aside class="col-md-8">
+						<video autoplay="" loop="" muted="" playsinline="" class="video">
+							<source src="../static/images/tw-homepage-measure-11.mp4" type="video/mp4">
+						</video>
+					</aside>
+				</div>
+			</div>
+		</section>
+		<section id="feature-page" class="d-none">
+			<div class="container-fluid">
+				<div class="row">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12 navbar-cs">
+						<a href="javascript:void(0)" id="back-to-landing" class="btn btn-default"><i class="fas fa-arrow-left"></i> Go Back</a>
+						<ul class="nav nav-pills  ml-auto" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" href="#api" data-toggle="tab" role="tab" aria-controls="api" aria-selected="true">Connect To Text Analytics API</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#sentimate" data-toggle="tab" role="tab" aria-controls="sentimate" aria-selected="false">Sentimate Analysis</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#key-phase" data-toggle="tab" role="tab" aria-controls="key-phase" aria-selected="false">Key Phase Extraction</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#intent" data-toggle="tab" role="tab" aria-controls="intent" aria-selected="false">Intent Analysis</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#emotion" data-toggle="tab" role="tab" aria-controls="emotion" aria-selected="false">Emotion Detection</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="tab-content col-md-12" id="myTabContent">
+						<div class="tab-pane fade show active" id="api" role="tabpanel" aria-labelledby="api-tab">Text Analytics API</div>
+						<div class="tab-pane fade" id="sentimate" role="tabpanel" aria-labelledby="sentimate-tab">
+							<div class="col-md-12">
+								<div class="page-context">
+									<h6>About</h6>
+									<p>Sentiment Analysis measures the positivity or negativity expressed in customer interactions. PACE sentiment analysis provides a very accurate analysis of the overall emotion of the text content on a 11-point scale using natural language processing algorithm</p>
+									<p>Try our demo now by typing a sentence or chose from the options in the dropdown menu</p>
+								</div>
+								<form enctype="multipart/form-data">
+									<div class="action-area">
+										<div class="btn-group col-md-6" role="group" aria-label="Basic example">
+											<select class="col-md-6 form-control" name="language">
+												<option value="english">English</option>
+												<option value="spanish">Spanish</option>
+												<option value="chinese">Chinese</option>
+												<option value="italian">Italian</option>
+											</select>
+											<select class="col-md-6 form-control input-type" name="input_type">
+												<option value="manual">Manually Input the text</option>
+												<option value="excel">Upload Excel</option>
+												<option value="csv">Upload CSV</option>
+												<option value="textfile">Upload Text File</option>
+											</select>
+										</div><!-- .btn-group -->
+									</div>
+									<div class="form-group" id="text-input">
+										<textarea class="form-control" rows="7" name="manual_input" id="manual-input" placeholder="Please Type Your Input"></textarea>
+									</div>
+									<div class="form-group d-none" id="file-input">
+										<div class="custom-file">
+										  <input type="file" class="custom-file-input" id="input-file" >
+										  <label class="custom-file-label" for="customFile">Choose file</label>
+										</div>
+									</div>
+									<button type="button" class="btn btn-primary submit-action">Submit</button>
+								</form>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="key-phase" role="tabpanel" aria-labelledby="key-phase-tab">
+							<div class="col-md-12">
+								<div class="page-context">
+									<h6>About</h6>
+									<p>Sentiment Analysis measures the positivity or negativity expressed in customer interactions. PACE sentiment analysis provides a very accurate analysis of the overall emotion of the text content on a 11-point scale using natural language processing algorithm</p>
+									<p>Try our demo now by typing a sentence or chose from the options in the dropdown menu</p>
+								</div>
+								<form enctype="multipart/form-data">
+									<div class="action-area">
+										<div class="btn-group col-md-6" role="group" aria-label="Basic example">
+											<select class="col-md-6 form-control" name="language">
+												<option value="english">English</option>
+												<option value="spanish">Spanish</option>
+												<option value="chinese">Chinese</option>
+												<option value="italian">Italian</option>
+											</select>
+											<select class="col-md-6 form-control input-type" name="input_type">
+												<option value="manual">Manually Input the text</option>
+												<option value="excel">Upload Excel</option>
+												<option value="csv">Upload CSV</option>
+												<option value="textfile">Upload Text File</option>
+											</select>
+										</div><!-- .btn-group -->
+									</div>
+									<div class="form-group" id="text-input">
+										<textarea class="form-control" rows="7" name="manual_input" id="manual-input" placeholder="Please Type Your Input"></textarea>
+									</div>
+									<div class="form-group d-none" id="file-input">
+										<div class="custom-file">
+										  <input type="file" class="custom-file-input" id="input-file" accept=".txt, .csv, .xlsx .xls">
+										  <label class="custom-file-label" for="customFile">Choose file</label>
+										</div>
+									</div>
+									<button type="button" class="btn btn-primary submit-action">Submit</button>
+								</form>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="intent" role="tabpanel" aria-labelledby="intent-tab">Intent Analysis</div>
+						<div class="tab-pane fade" id="emotion" role="tabpanel" aria-labelledby="emotion-tab">Emotion Detection</div>
+					</div>
+					<div class="table-responsive" id="output-div">
+						<table id="exceltable" class="table d-none "></table>
+						<div id="text-output" class="col-md-12 d-none"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript" src="../static/scripts/library/popper.min.js"></script>
+		<script type="text/javascript" src="../static/scripts/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../static/scripts/features.js"></script>
+	</body>
+</html>

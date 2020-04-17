@@ -1,0 +1,187 @@
+body{ 
+	margin:0; 
+	font:normal 75% Arial, Helvetica, sans-serif; 
+} 
+canvas{ 
+	display: block; 
+	vertical-align: bottom; 
+} 
+#particles-js{ 
+	position:absolute; 
+	width: 100%; 
+	height: 100%; 
+	
+} 
+
+
+#hero-wrap {
+	width: 100%;
+    height: 100%;
+    position: inherit;
+    z-index: 0;
+}
+#hero-wrap #particle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    opacity: .97;
+    background: #ee76ad;
+    background: -moz-linear-gradient(45deg,#ee76ad 0%,#efac78 100%);
+    background: -webkit-gradient(left bottom,right top,color-stop(0%,#ee76ad),color-stop(100%,#efac78));
+    background: -webkit-linear-gradient(45deg,#ee76ad 0%,#efac78 100%);
+    background: -o-linear-gradient(45deg,#ee76ad 0%,#efac78 100%);
+    background: -ms-linear-gradient(45deg,#ee76ad 0%,#efac78 100%);
+    background: linear-gradient(45deg,#ee76ad 0%,#efac78 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#448ef6',endColorstr='#af05a9',GradientType=1 );
+}
+#hero-wrap #overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+}
+.ftco-navbar-light {
+    background: 0 0!important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    top: 30px;
+}
+.ftco-navbar-light .navbar-toggler {
+    border: none;
+    color: rgba(255,255,255,.5)!important;
+    cursor: pointer;
+    padding-right: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: .1em;
+}
+.ftco-navbar-light .navbar-nav>.nav-item.active>a {
+    color: rgba(255,255,255,.5);
+}
+.ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
+    font-size: 16px;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #f0f0f0;
+    font-weight: 400;
+    opacity: 1!important;
+}
+.ftco-navbar-light .navbar-nav>.nav-item.cta>a {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.3);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 4px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+}
+.ftco-navbar-light .navbar-nav>.nav-item.cta>a.active {
+	background: #fff;
+    border-color: #fff;
+    color: #ee76ad;
+}
+#home-graph-wrapper {
+    position: absolute;
+    top: 32em;
+    left: 3em;
+    z-index: 3;
+}
+#home-graph-wrapper img {
+	max-width: 300px;
+}
+#home-content-wrapper {
+	position: absolute;
+	right: 3em;
+	top: 14em;
+	z-index: 3;
+	width: 300px;
+}
+#home-content-wrapper .card {
+	background-color: rgba(255,255,255,.05);
+	border: 1px solid #FFF;
+}
+#home-content-wrapper .card-title {
+	border-bottom: 1px solid #FFF;
+	color: #FFF;
+}
+#home-content-wrapper .btn-outline-white {
+	width: 100%;
+}
+#home-content-wrapper .form-check-input {
+	display: none;
+}
+#home-content-wrapper .form-check {
+	width: 30px;
+    height: 50px;
+}
+#home-content-wrapper .form-check.checked {
+	color: #0A357B;
+}
+#home-content-wrapper .form-check-label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+	font-size: 3rem;
+	
+}
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.btn.btn-outline-white {
+    border-color: rgba(255,255,255,.8);
+    background: 0 0;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    border-width: 2px;
+    color: #fff;
+}
+.btn.btn-outline-white:hover, 
+.btn.btn-outline-white:focus, 
+.btn.btn-outline-white:active {
+    background: #fff;
+    border-color: #fff;
+    color: #ee76ad;
+}
+.card {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.card-title {
+	border-bottom: 1px solid #CCC;
+	color: #efac78;
+	padding-bottom: 0.2em;
+}
+.form-group.border-wrapper {
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	padding: 5px;
+	color: #FFF;
+}
+.form-check {
+	font-size: 1rem;
+}
+.navbar-brand img {
+	max-width: 150px;
+}

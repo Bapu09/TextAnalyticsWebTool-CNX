@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>Text Analytics</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="../static/styles/particle.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/93cd4d0f0f.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+			<div class="container-fluid">
+				<a class="navbar-brand text-center" href="index.html">
+					<img src="../static/images/logo.png" title="COncentrix PACE" alt="concentrix logo" />
+					<br />
+					<span>PACE</span>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="oi oi-menu"></span> Menu
+				</button>
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-source="#about">About</a></li>
+						<li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-source="#features">Features</a></li>
+						<li class="nav-item"><a href="javascript:void(0)" class="nav-link" data-source="#contact"><span>Get in touch</span></a></li>
+						<li class="nav-item cta"><a href="javascript:void(0)" class="nav-link" data-source="#register" id="register">Register</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<section id="banner">
+			<div class="container-fluid">
+				<div class="row">
+					<div id="hero-wrap">
+						<div id="particle-bg"></div>
+						<div id="particles-js"></div>
+						<div id="overlay"></div>
+					</div><!-- #hero-wrap -->
+					<div id="home-graph-wrapper">
+						<img src="../static/images/graph.gif" id="home-gif-graph" alt="graph" />
+					</div>
+					<div id="home-content-wrapper">
+						<div id="login-card" class="">
+							<div class="card">
+								<div class="col-md-12 text-center">
+									<h5 class="card-title text-center">Log In</h5>
+									<img id="profile-img" class="profile-img-card" src="../static/images/avatar.png">
+									<form class="form-signin">
+										<span id="reauth-email" class="reauth-email"></span>
+										<div class="form-group">
+											<input type="email" id="user-mail" class="form-control" placeholder="Email address" required="required" autofocus="true">
+										</div>
+										<div class="form-group">
+											<input type="password" id="user-password" class="form-control" placeholder="Password" required="">
+										</div>
+										<div id="remember" class="checkbox">
+											<label>
+												<input type="checkbox" value="remember-me"> Remember me
+											</label>
+										</div>
+										<button class="btn btn-outline-white" type="button">Sign in</button>
+									</form><!-- /form -->
+									<a href="#" class="forgot-password">
+										Forgot the password?
+									</a>
+								</div>
+							</div><!-- .card -->
+						</div><!-- #login-card -->
+						<div id="registration-card" class="d-none">
+							<div class="card">
+								<div class="col-md-12 text-center">
+									<h5 class="card-title text-center">Register</h5>
+									<form class="form-register">
+										<div class="form-group">
+											<input type="text" id="user-full-name" class="form-control" placeholder="Full Name" required="required">
+										</div>
+										<div class="form-group">
+											<input type="email" id="user-mail" class="form-control" placeholder="Email address" required="required">
+										</div>
+										<div class="form-group">
+											<input type="password" id="user-password" class="form-control" placeholder="Password" required="required">
+										</div>
+										<div class="form-group">
+											<input type="password" id="user-password" class="form-control" placeholder="Confirm Password" required="required">
+										</div>
+										<div class="form-group border-wrapper">
+											<label>Select Gender</label>
+											<br />
+											<div class="form-check form-check-inline checked">
+												<input class="form-check-input" type="radio" name="gender" id="gender-male" value="1">
+												<label class="form-check-label" for="gender-male"><i class="fas fa-male"></i></label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="gender" id="gender-female" value="2">
+												<label class="form-check-label" for="gender-female"><i class="fas fa-female"></i></label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="gender" id="gender-other" value="3">
+												<label class="form-check-label" for="gender-other"><i class="fas fa-transgender"></i></label>
+											</div>
+										</div>
+										<button class="btn btn-outline-white" type="button">Submit</button>
+									</form><!-- /form -->
+								</div>
+							</div><!-- .card -->
+						</div><!-- #login-card -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript" src="../static/scripts/library/popper.min.js"></script>
+		<script type="text/javascript" src="../static/scripts/library/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../static/scripts/library/particles.min.js"></script>
+		<script type="text/javascript" src="../static/scripts/particle.js"></script>
+		
+	</body>
+</html>
