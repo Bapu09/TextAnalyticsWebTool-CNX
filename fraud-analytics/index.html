@@ -1,0 +1,182 @@
+<html>
+	<head>
+		<title>Fraud Analytics</title>
+		<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link href="http://fonts.googleapis.com/css?family=Amaranth:400,700|Just+Another+Hand" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka+One&family=Great+Vibes&family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet"  href="./css/main.css">
+		<link rel="stylesheet"  href="./css/new.css">
+	
+		<script src="https://kit.fontawesome.com/93cd4d0f0f.js" crossorigin="anonymous"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+	</head>
+	<body>
+		<header>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<aside class="col-md-8 col-md-offset-2 text-center" id="landing-header">
+							<span>Welcome To </span>
+							<span>Fraud Analytics</span>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section id="landing-section">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<aside class="col-md-6" id="how-it-works">
+							<h6 class="title">How fraud analytics works ?</h6>
+							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>
+							<p>it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as </p>
+							<p>their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<button class="btn btn-cs" id="start-demo">Let's Start Analysis</button>
+								
+						</aside>
+						<aside class="col-md-6 text-center">
+							<video autoplay="" loop="" muted="" playsinline="" class="video">
+								<source src="./images/tw-homepage-measure-11.mp4" type="video/mp4">
+							</video>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="demo-section" class="hide">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<section id="tab-section">
+							<input type="radio" id="upload" value="1" name="tractor" checked='checked' />    
+							<input type="radio" id="input" value="2" name="tractor" disabled="disabled"/>      
+							<input type="radio" id="metrics" value="3" name="tractor" disabled="disabled"/>
+							<input type="radio" id="output" value="4" name="tractor" disabled="disabled"/>
+							<nav id="tab-header-nav">   
+								<label for="upload" class='fas fa-upload tab-label'>Upload</label>
+								<label for="input" class='fas fa-file-excel tab-label disabled'>Input</label>
+								<label for="metrics" class='fas fa-list-alt tab-label disabled'>Metrics</label>
+								<label for="output" class='fas fa-chart-line tab-label disabled'>Output</label>
+							</nav>
+							<article class='upload-tab tab-articles'>
+								<div class="col-md-12 pane-content-holder">
+									<form class="col-md-3">
+										<div class="form-group d-none" id="file-input">
+											<div class="custom-file">
+												<label class="custom-file-label" for="customFile">Upload File</label>
+												<input type="file" class="custom-file-input" id="input-file" accept=".xlsx, .xls">
+											</div>
+										</div>
+										<button type="button" class="btn btn-cs" id="upload-file">Upload</button>
+									</form>
+									<div class="col-md-5">
+										<ul class="list-group" id="upload-rules">
+											<li class="list-group-item"><i class="fas fa-arrow-circle-right"></i>Only excel files are allowed</li>
+											<li class="list-group-item"><i class="fas fa-arrow-circle-right"></i>Max 20 MB file is allowed to be uploaded</li>
+											<li class="list-group-item"><i class="fas fa-arrow-circle-right"></i>Morbi leo risus</li>
+										</ul>
+									</div>
+								</div>
+							</article><!-- .upload-tab.tab-articles -->
+							<article class='input-tab tab-articles'>
+								<div class="col-md-12 pane-content-holder">
+									<div class="table-responsive">
+										<table class="table table-condensed table-hover">
+											<thead>
+												<tr>
+													<th>Sl No</th>
+													<th>First Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<th>Team Lead Name</th>
+													<th>Team Lead Email</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Girija</td>
+													<td>Dash</td>
+													<td>girija.dash@concentrix.com</td>
+													<td>Sumit Khatri</td>
+													<td>sumit.khatri@concentrix.com</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Girija</td>
+													<td>Dash</td>
+													<td>girija.dash@concentrix.com</td>
+													<td>Sumit Khatri</td>
+													<td>sumit.khatri@concentrix.com</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Girija</td>
+													<td>Dash</td>
+													<td>girija.dash@concentrix.com</td>
+													<td>Sumit Khatri</td>
+													<td>sumit.khatri@concentrix.com</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<nav aria-label="Page navigation">
+										<ul class="pagination pull-right">
+											<li class="disabled">
+											  <a href="#" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span>
+											  </a>
+											</li>
+											<li class="active"><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li>
+											  <a href="#" aria-label="Next">
+												<span aria-hidden="true">&raquo;</span>
+											  </a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</article><!-- .input-tab.tab-articles -->
+							<article class='metrics-tab tab-articles'>
+								<ul class="list-group col-md-6">
+									<li class="list-group-item active">
+										<div class="metrics-row-wrapper">
+											<span class="col-md-2 text-center">
+												Select Checkbox
+											</span>
+											<span class="col-md-4 text-center">
+												Input Value
+											</span>
+											<span class="col-md-6 text-center">
+												Select Metrics
+											</span>
+										</div>
+									</li>
+								</ul>
+								<div class="col-md-12"><button type="button" class="btn btn-cs" id="start-analysis">Analyze</button></div>
+							</article><!-- .metrics-tab tab-articles -->
+
+							<article class='output-tab tab-articles'>
+								<dl>
+								  <dt>Guía de Transiciones Css</dt>
+								  <dd>Todas y cada una de las propiedades css que componen el grupo de las transitions con demos.</dd>
+								  <dt>@Font-face y sus problemas</dt>
+								  <dd>Los problemas más comunes y sus soluciones, que suelen presentarse al utilizar la regla @font-face de Css para mostrar los textos en tipografías distintas a las safety fonts.</dd>
+								</dl>
+							</article><!-- .output-tab.tab-articles -->
+						</section>
+					</div><!-- .col-md-12 -->
+				</div><!-- .row -->
+			</div><!-- .container-fluid -->
+		</section><!-- #demo-section -->
+		<script src="./js/main.js"></script>
+	</body>
+</html>

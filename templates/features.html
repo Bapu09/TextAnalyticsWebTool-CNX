@@ -7,9 +7,28 @@
 		<script src="https://kit.fontawesome.com/93cd4d0f0f.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>  
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
+		<script src="../static/scripts/library/gauge.min.js"></script>
 	</head>
 	<body>
+		<div class="modal" tabindex="-1" role="dialog" id="show-user-input-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">User Input</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="table-responsive">
+							<table id="exceltable" class="table d-none"></table>
+						</div>
+						<div id="text-output" class="d-none"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<header>
 			<div class="container-fluid">
 				<div class="row">
@@ -20,7 +39,7 @@
 		<section id="landing-page" class="">
 			<div class="container-fluid">
 				<div class="row">
-					<aside class="col-md-4" id="left-panel">
+					<aside class="col-md-5" id="left-panel">
 						<div class="card">
 							<h5 class="card-title text-center">Text Analytics Documentation</h5>
 							<div class="card-body">
@@ -52,13 +71,12 @@
 						<div class="card">
 							<h5 class="card-title text-center">FAQs</h5>
 							<div class="card-body">
-								<p>For full 360 view of operations, perform sentimate analysis (not emotion or contextual)</p>
-								<p>Enables automated workflows which drive actionable insight & efficiency.</p>
+								<p>For full 360 view of operations, perform sentimate analysis (not emotion or contextual). Enables automated workflows which drive actionable insight & efficiency.</p>
 								<button class="btn btn-primary btn-cs">Explore More</button>
 							</div>
 						</div><!-- .card -->
 					</aside>
-					<aside class="col-md-8">
+					<aside class="col-md-7">
 						<video autoplay="" loop="" muted="" playsinline="" class="video">
 							<source src="../static/images/tw-homepage-measure-11.mp4" type="video/mp4">
 						</video>
@@ -69,27 +87,31 @@
 		<section id="feature-page" class="d-none">
 			<div class="container-fluid">
 				<div class="row">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12 navbar-cs">
-						<a href="javascript:void(0)" id="back-to-landing" class="btn btn-default"><i class="fas fa-arrow-left"></i> Go Back</a>
-						<ul class="nav nav-pills  ml-auto" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" href="#api" data-toggle="tab" role="tab" aria-controls="api" aria-selected="true">Connect To Text Analytics API</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#sentimate" data-toggle="tab" role="tab" aria-controls="sentimate" aria-selected="false">Sentimate Analysis</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#key-phase" data-toggle="tab" role="tab" aria-controls="key-phase" aria-selected="false">Key Phase Extraction</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#intent" data-toggle="tab" role="tab" aria-controls="intent" aria-selected="false">Intent Analysis</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#emotion" data-toggle="tab" role="tab" aria-controls="emotion" aria-selected="false">Emotion Detection</a>
-							</li>
-						</ul>
-					</nav>
-					<div class="tab-content col-md-12" id="myTabContent">
+					<div class="col-md-12"><button class="btn btn-info" id="back-to-landing"><i class="fas fa-arrow-left"></i> Back To Landing Page</button></div>
+					<div class="col-md-3 left-pane">
+						<div class="card">
+							<div class="card-body">
+								<ul class="nav nav-pills flex-column mr-auto" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" href="#api" data-toggle="tab" role="tab" aria-controls="api" aria-selected="true">Connect To Text Analytics API</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#sentimate" data-toggle="tab" role="tab" aria-controls="sentimate" aria-selected="false">Sentimate Analysis</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#key-phase" data-toggle="tab" role="tab" aria-controls="key-phase" aria-selected="false">Key Phase Extraction</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#intent" data-toggle="tab" role="tab" aria-controls="intent" aria-selected="false">Intent Analysis</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#emotion" data-toggle="tab" role="tab" aria-controls="emotion" aria-selected="false">Emotion Detection</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tab-content col-md-9 right-pane" id="myTabContent">
 						<div class="tab-pane fade show active" id="api" role="tabpanel" aria-labelledby="api-tab">Text Analytics API</div>
 						<div class="tab-pane fade" id="sentimate" role="tabpanel" aria-labelledby="sentimate-tab">
 							<div class="col-md-12">
@@ -101,17 +123,15 @@
 								<form enctype="multipart/form-data">
 									<div class="action-area">
 										<div class="btn-group col-md-6" role="group" aria-label="Basic example">
-											<select class="col-md-6 form-control" name="language">
-												<option value="english">English</option>
-												<option value="spanish">Spanish</option>
-												<option value="chinese">Chinese</option>
-												<option value="italian">Italian</option>
-											</select>
 											<select class="col-md-6 form-control input-type" name="input_type">
 												<option value="manual">Manually Input the text</option>
 												<option value="excel">Upload Excel</option>
-												<option value="csv">Upload CSV</option>
-												<option value="textfile">Upload Text File</option>
+												<option value="repo">Analyze From Repo</option>
+											</select>
+											<select class="col-md-6 form-control d-none repo-input" name="repo">
+												<option value="">Choose Repo</option>
+												<option value="ABC">ABC</option>
+												<option value="DEF">DEF</option>
 											</select>
 										</div><!-- .btn-group -->
 									</div>
@@ -124,7 +144,8 @@
 										  <label class="custom-file-label" for="customFile">Choose file</label>
 										</div>
 									</div>
-									<button type="button" class="btn btn-primary submit-action">Submit</button>
+									<button type="button" class="btn btn-secondary float-right d-none show-input" data-toggle="modal" data-target="#show-user-input-modal">Show Input</button>
+									<button type="button" class="btn btn-primary submit-action">Analyze</button>
 								</form>
 							</div>
 						</div>
@@ -132,23 +153,21 @@
 							<div class="col-md-12">
 								<div class="page-context">
 									<h6>About</h6>
-									<p>Sentiment Analysis measures the positivity or negativity expressed in customer interactions. PACE sentiment analysis provides a very accurate analysis of the overall emotion of the text content on a 11-point scale using natural language processing algorithm</p>
-									<p>Try our demo now by typing a sentence or chose from the options in the dropdown menu</p>
+									<p>Key Phrase extracts the most frequently occurring relevant words. PACE keywords generator helps finding and suggesting most important keywords in a text and ranking them</p>
+									<p>Try our demo now by typing a sentence or choose from the options in the drop-downmenu.</p>
 								</div>
 								<form enctype="multipart/form-data">
 									<div class="action-area">
 										<div class="btn-group col-md-6" role="group" aria-label="Basic example">
-											<select class="col-md-6 form-control" name="language">
-												<option value="english">English</option>
-												<option value="spanish">Spanish</option>
-												<option value="chinese">Chinese</option>
-												<option value="italian">Italian</option>
-											</select>
 											<select class="col-md-6 form-control input-type" name="input_type">
 												<option value="manual">Manually Input the text</option>
 												<option value="excel">Upload Excel</option>
-												<option value="csv">Upload CSV</option>
-												<option value="textfile">Upload Text File</option>
+												<option value="repo">Analyze From Repo</option>
+											</select>
+											<select class="col-md-6 form-control d-none" name="repo">
+												<option value="">Choose Repo</option>
+												<option value="ABC">ABC</option>
+												<option value="DEF">DEF</option>
 											</select>
 										</div><!-- .btn-group -->
 									</div>
@@ -157,20 +176,26 @@
 									</div>
 									<div class="form-group d-none" id="file-input">
 										<div class="custom-file">
-										  <input type="file" class="custom-file-input" id="input-file" accept=".txt, .csv, .xlsx .xls">
+										  <input type="file" class="custom-file-input" id="input-file">
 										  <label class="custom-file-label" for="customFile">Choose file</label>
 										</div>
 									</div>
-									<button type="button" class="btn btn-primary submit-action">Submit</button>
+									<button type="button" class="btn btn-secondary float-right d-none show-input" data-toggle="modal" data-target="#show-user-input-modal">Show Input</button>
+									<button type="button" class="btn btn-primary submit-action">Analyze</button>
 								</form>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="intent" role="tabpanel" aria-labelledby="intent-tab">Intent Analysis</div>
 						<div class="tab-pane fade" id="emotion" role="tabpanel" aria-labelledby="emotion-tab">Emotion Detection</div>
-					</div>
-					<div class="table-responsive" id="output-div">
-						<table id="exceltable" class="table d-none "></table>
-						<div id="text-output" class="col-md-12 d-none"></div>
+						<div class="d-none" id="analysis-output">
+							<div class="card">
+								<h6 class="card-title text-center">Analysis Result</h6>
+								<div class="card-body">
+									<canvas width=380 height=150 id="canvas-preview"></canvas>
+  									<div id="preview-textfield"></div>
+								</div>
+							</div>
+						</div><!-- #analysis-output -->
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,7 @@
 header {
 	background: #142B65;
 	color: #FFF;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 header .navbar-brand {
 	color: #FFF;
@@ -21,7 +21,7 @@ header .navbar-brand {
 }
 #left-panel .card-body {
 	padding: 0.4rem;
-	font-size: 12px;
+	font-size: 10px;
 }
 #left-panel .card-body p {
 	margin-bottom: 0.4rem;
@@ -40,4 +40,51 @@ header .navbar-brand {
 }
 .action-area {
 	margin-bottom: 15px;
+}
+#back-to-landing {
+	margin-bottom: 1em;
+}
+.left-pane .card {
+	background: #142B65;
+}
+.left-pane .card a {
+	color: #FFF;
+}
+.right-pane .tab-pane {
+	background: #ececec;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	box-shadow: 1px 1px 1px 1px #DDD;
+	border-radius: 5px;
+	margin-bottom: 2em;
+}
+.page-context h6 {
+	background: #142B65;
+	color: #FFF;
+	padding: 5px;
+    border-radius: 5px;
+}
+#output-div .card {
+	background: #ececec;
+}
+#analysis-output {
+	margin-bottom: 15px;
+}
+.analysis-text  {
+	padding: 5px;
+	color: #FFF;
+	border-radius: 5px;
+}
+.bg-red {
+	background: #F03E3E;
+}
+.bg-yellow {
+	background:#FFDD00;
+}
+.bg-green {
+	background: #30B32D;
+}
+#show-user-input-modal .modal-dialog {
+	max-width: 90%;
+	width: 90%;
 }

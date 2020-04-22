@@ -1,14 +1,33 @@
+$.fn.gauge = function(opts) {
+  this.each(function() {
+    var $this = $(this),
+        data = $this.data();
+
+    if (data.gauge) {
+      data.gauge.stop();
+      delete data.gauge;
+    }
+    if (opts !== false) {
+      data.gauge = new Gauge(this).setOptions(opts);
+    }
+  });
+  return this;
+};
 jQuery(function() {
 	jQuery('#back-to-landing').on('click', function() {
 		jQuery('#feature-page').fadeOut('slow').addClass('d-none');
 		jQuery('#landing-page').fadeIn('slow').removeClass('d-none');
+		jQuery('#output-div').addClass('d-none');
+		jQuery('#output-div').find('table').addClass('d-none');
+		jQuery('#analysis-output').addClass('d-none');
 	});
 	
 	jQuery('#landing-page .card-body .btn-cs').on('click', function() {
 		var target = jQuery(this).data('target');
 		if(jQuery(target).length > 0) {
 			jQuery('#landing-page').fadeOut('slow').addClass('d-none');
-			jQuery(target).fadeIn('slow').removeClass('d-none')
+			jQuery(target).fadeIn('slow').removeClass('d-none');
+			jQuery(target).find('.nav-item a:first-child')[0].click();
 		} else {
 			alert('Page Not Available');
 		}
@@ -17,9 +36,11 @@ jQuery(function() {
 	jQuery('#feature-page .input-type').on('change', function() {
 		console.log("Input Type Changed");
 		var currentTab = jQuery(this).parents('form');
-		if(jQuery(this).val() == 'excel' || jQuery(this).val() == 'csv' || jQuery(this).val() == 'textfile') {
+		if(jQuery(this).val() == 'excel' ) {
 			currentTab.find('#file-input').fadeIn('slow').removeClass('d-none');
 			currentTab.find('#text-input').fadeOut('slow').addClass('d-none');
+		} else if(jQuery(this).val() == 'repo') {
+			currentForm.find(".repo-input").fadeIn('slow').removeClass('d-none');
 		} else {
 			currentTab.find('#text-input').fadeIn('slow').removeClass('d-none');
 			currentTab.find('#file-input').fadeOut('slow').addClass('d-none');
@@ -27,49 +48,57 @@ jQuery(function() {
 	});
 	
 	jQuery('.submit-action').on('click', function() {
-		console.log("Submit Action Clicked");
-		jQuery('#output-div').find('table').addClass('d-none');
-		jQuery('#output-div').find('div').addClass('d-none');
+		jQuery('#analysis-output').addClass('d-none');
+		console.log("Output is hidden");
+		jQuery('#exceltable').addClass('d-none');
+		jQuery('#text-output').addClass('d-none');
 		var currentForm = jQuery(this).parents('form');
 		var inputType = currentForm.find('.input-type');
-		var allowedFileTypes  = ['txt', 'csv', 'xlsx', 'xls']
+		var allowedFileTypes  = ['xlsx', 'xls']
 		if(inputType.length > 0) {
 			if(inputType.val() == 'manual') {
 				var text = currentForm.find('textarea').val();
 				jQuery('#text-output').html(text);
 				jQuery('#text-output').fadeIn('slow').removeClass('d-none');
+				jQuery('.show-input').fadeIn('slow').removeClass('d-none');
+			} else if(inputType.val() == 'repo') {
+				console.log("Input Type : "+inputType.val())
+				console.log("Repo length : "+currentForm.find(".repo-input").length)
+				currentForm.find(".repo-input").fadeIn('slow').removeClass('d-none');
 			} else {
 				var file = currentForm.find('.custom-file-input')[0].files[0];
 				var filename = file.name,
 				extension = filename.split('.')[1];
 				if(allowedFileTypes.indexOf(extension) !== -1) {
-					if(file.size <= 200000 ) {
-						console.log("Input Type : "+inputType.val());
-						console.log('File Size : '+file.size)
+					/*if(file.size <= 200000 ) {
 						if(extension == 'csv') {
 							console.log('Path : '+file.mozFullPath);
 							processCSVData(file);
-						}
+						}*/
 						if(extension == 'xlsx' || extension == 'xls') {
 							processFile(file);
+							jQuery('.show-input').fadeIn('slow').removeClass('d-none');
 						}
-						
-					} else {
+					/*} else {
 						alert('File size shouldnot be more than 20 MB. For processing of large file size contact "example@abc.com"')
 						return;
-					}
+					}*/
 				} else {
-					alert ("Only Excel, CSV and Text file are allowed");
+					alert ("Only Excel files are allowed");
 					return;
 				}
-				
 			}
+			jQuery('#output-div').removeClass('d-none');
+			jQuery('#analysis-output').removeClass('d-none');
+			jQuery('#analysis-output canvas').removeClass('d-none')
+			initiateGaugeJS(1350, 3000, 'sentimate');
 		}
 	});
 	
 	$('.nav-item a').on('hide.bs.tab', function(e){
-		jQuery('#output-div').find('table').addClass('d-none');
-		jQuery('#output-div').find('div').addClass('d-none');
+		jQuery('#analysis-output').addClass('d-none');
+		jQuery('#exceltable').addClass('d-none');
+		jQuery('#text-output').addClass('d-none');
 	});
 })
 
@@ -112,9 +141,7 @@ function processFile(file) {
 						var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);  
 					}  
 					if (exceljson.length > 0 && cnt == 0) {  
-						console.log('Clearing Table')
 						jQuery('#exceltable').html('');
-						console.log("Binding Data To Table");
 						BindTable(exceljson, '#exceltable');
 						
 						cnt++;  
@@ -124,7 +151,6 @@ function processFile(file) {
 			}
 			if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/  
 				var buffer = reader.readAsArrayBuffer(file);  
-				console.log('BUffer : '+buffer);
 			} else {  
 				reader.readAsBinaryString(file);  
 			}  
@@ -189,5 +215,39 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
 		$('#exceltable').fadeIn('slow').removeClass('d-none');
 	} else {
 		alert("This browser does not support HTML5.");
+	}
+}
+
+function initiateGaugeJS(value, maxValue, tab) {
+	switch(tab) {
+		case "sentimate" :
+			var opts = {
+				angle: -0.28, // The span of the gauge arc
+				lineWidth: 0.16, // The line thickness
+				radiusScale: 1, // Relative radius
+				pointer: {
+					length: 0.48, // // Relative to gauge radius
+					strokeWidth: 0.09, // The thickness
+					color: '#000000' // Fill color
+				},
+				limitMax: false,     // If false, max value increases automatically if value > maxValue
+				limitMin: false,     // If true, the min value of the gauge will be fixed
+
+				highDpiSupport: true,     // High resolution support
+				staticZones: [
+				   {strokeStyle: "#30B32D", min: 0, max: 60}, // Green from 100 to 130
+				   {strokeStyle: "#FFDD00", min: 60, max: 72}, // Yellow
+				   {strokeStyle: "#F03E3E", min: 72, max: 100}, // Red
+
+				],
+
+			};			
+			demoGauge = new Gauge(document.getElementById("canvas-preview")).setOptions(opts);
+			demoGauge.maxValue = 100;
+			demoGauge.setMinValue(0)
+			demoGauge.animationSpeed = 32
+			demoGauge.set(60);	
+			jQuery('#preview-textfield').html('<span class="col-md-4"><span class="analysis-text bg-green">60% Positive</span></span><span class="col-md-4"><span class="analysis-text bg-yellow">12% Neutral</span></span><span class="col-md-4"><span class="analysis-text bg-red">28% Negative<span></span>')
+			break;
 	}
 }
