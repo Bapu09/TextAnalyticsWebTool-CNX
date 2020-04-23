@@ -9,6 +9,30 @@ font-family: 'Just Another Hand', cursive;
 body {
 	position: relative;
 }
+#loader {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	background: #FFF;
+	text-align: center;
+}
+#loader #loading-text {
+	display: block;
+    width: 300px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    color: #221ECD;
+    margin-top: -2em;
+    position: absolute;
+    left: 39%;
+    height: 40px;
+    font-size: 22px;
+}
+#loader img {
+	display: inline-block;
+	margin: 8em 0 auto;
+}
 header {
 	margin-bottom: 2em;
 }
@@ -25,30 +49,7 @@ video {
 .btn-cs:hover {
 	color: #a3a1f5;
 }
-.table {
-	border-collapse:separate; 
-	border-spacing:0 10px;
-}
-.table>tbody>tr>td, 
-.table>tbody>tr>th {
-	border-top: none;
-}
-.table>thead>tr>th {
-	border: none;
-	background: #ececec;
-	color: #949494;
-	margin-bottom: 1em;
-}
-.table>thead>tr>th:first-child,
-.table-striped>tbody>tr>td:first-child {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-.table>thead>tr>th:last-child,
-.table-striped>tbody>tr>td:last-child {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
+
 .pagination>.active>a, 
 .pagination>.active>a:focus, 
 .pagination>.active>a:hover, 
@@ -103,9 +104,7 @@ video {
 	background: #221ECD;
 	color: #FFFFFF;
 }
-.metrics-tab .list-group .checkbox input {
-	display: none;
-}
+
 .metrics-row-wrapper {
 	display: block;
 	overflow: hidden;
@@ -127,4 +126,16 @@ video {
 }
 .metrics-tab .list-group-item {
 	padding: 0;
+}
+.metrics-tab .list-group-item.selected {
+	background: #b9b8de;
+}
+#input-table th,
+#output-table th {
+	color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.dataTables_length{
+	display: none;
 }
