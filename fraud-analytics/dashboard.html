@@ -1,0 +1,202 @@
+<html>
+	<head>
+		<title>Fraud Analytics</title>
+		<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka+One&family=Great+Vibes&family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet"  href="./css/main.css">
+		<link rel="stylesheet"  href="./css/new.css">
+		<link rel="stylesheet"  href="./css/dashboard.css">
+		
+		<script src="https://kit.fontawesome.com/93cd4d0f0f.js" crossorigin="anonymous"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/series-label.js"></script>
+		<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+		
+		
+		
+	</head>
+	<body>
+		<section>
+			<div class="container-fluid">
+				<div class="row">
+					<article class='visualization-tab tab-articles'  id="dashboard-wrapper">
+						<div class="col-md-12 pane-content-holder">
+							<div class="row">
+								<div id="dashboard-filters" class="col-md-12 hide">
+									<div class="row">
+										<div class="col-md-12"><h4 class="section-title text-center"><i class="fas fa-filter"></i> Filters</h4></div>
+										<aside class="filter-card col-md-6" id="dateyear-selection">
+											<div class="row">
+												<aside class="col-md-6">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Year Range Slider
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-6">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Month Range Slider
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-12">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Date Range Slider
+														</div>
+													</div>
+												</aside>
+											</div>
+										</aside><!-- #dateyear-selection.filter-card.col-md-6 -->
+										<aside class="filter-card col-md-6">
+											<div class="row">
+												<aside class="col-md-4">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Campus Multi Select Box
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-4">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															LOB Multi Select Box
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-4">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Geo Multi Selection Box
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-4">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Tenure Bucket
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-4">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															Agent Filter
+														</div>
+													</div>
+												</aside>
+												<aside class="col-md-4">
+													<div class="panel panel-cs">
+														<div class="panel-body">
+															TL Filter
+														</div>
+													</div>
+												</aside>
+											</div>
+										</aside><!-- .filter-card.col-md-6 -->
+									</div>
+								</div><!-- #dashboard-filters.col-md-12 -->
+								<div id="dashboard-graphs" class="col-md-12">
+									<div class="row">
+										<aside class="col-md-3">
+											<div class="panel panel-cs panel-bg-gradient bg-gradient-danger">
+												<div class="panel-body">
+													<img src="./images/dashboard-circle-bg.svg" alt="Bg" class="card-img-absolute">
+													<h4 class="font-weight-normal mb-3">Weekly Sales <i class="fas fa-chart-line pull-right"></i></h4>
+													<h2 class="mb-5">$ 15,0000</h2>
+													<h6 class="card-text">Increased by 60%</h6>
+												</div>
+											</div>
+										</aside>
+										<aside class="col-md-3">
+											<div class="panel panel-cs panel-bg-gradient bg-gradient-info">
+												<div class="panel-body">
+													<img src="./images/dashboard-circle-bg.svg" alt="Bg" class="card-img-absolute">
+													<h4 class="font-weight-normal mb-3">Weekly Sales <i class="fas fa-chart-line pull-right"></i></h4>
+													<h2 class="mb-5">$ 15,0000</h2>
+													<h6 class="card-text">Increased by 60%</h6>
+												</div>
+											</div>
+										</aside>
+										<aside class="col-md-3">
+											<div class="panel panel-cs panel-bg-gradient bg-gradient-success">
+												<div class="panel-body">
+													<img src="./images/dashboard-circle-bg.svg" alt="Bg" class="card-img-absolute">
+													<h4 class="font-weight-normal mb-3">Weekly Sales <i class="fas fa-chart-line pull-right"></i></h4>
+													<h2 class="mb-5">$ 15,0000</h2>
+													<h6 class="card-text">Increased by 60%</h6>
+												</div>
+											</div>
+										</aside>
+										<aside class="col-md-3">
+											<div class="panel panel-cs panel-bg-gradient bg-gradient-purple">
+												<div class="panel-body">
+													<img src="./images/dashboard-circle-bg.svg" alt="Bg" class="card-img-absolute">
+													<h4 class="font-weight-normal mb-3">Weekly Sales <i class="fas fa-chart-line pull-right"></i></h4>
+													<h2 class="mb-5">$ 15,0000</h2>
+													<h6 class="card-text">Increased by 60%</h6>
+												</div>
+											</div>
+										</aside>
+									</div>
+									<div class="row">
+										<aside class="col-md-4">
+											<div class="panel panel-cs">
+												<div class="panel-heading"><h5 class="panel-title text-center">Pie Chart</h5></div>
+												<div class="panel-body">
+													<div id="3d-donut"></div>
+												</div>
+											</div>
+										</aside>
+										<aside class="col-md-8">
+											<div class="panel panel-cs">
+												<div class="panel-heading"><h5 class="panel-title text-center">Bar Chart</h5></div>
+												<div class="panel-body">
+													<div id="bar-chart-vertical"></div>
+												</div>
+											</div>
+										</aside>
+									</div>
+									<div class="row">
+										<aside class="col-md-6">
+											<div class="panel panel-cs">
+												<div class="panel-heading"><h5 class="panel-title text-center">Stacked Bar Chart</h5></div>
+												<div class="panel-body">
+													<div id="stacked-bar-chart"></div>
+												</div>
+											</div>
+										</aside>
+										<aside class="col-md-6">
+											<div class="panel panel-cs">
+												<div class="panel-heading"><h5 class="panel-title text-center">Area Chart</h5></div>
+												<div class="panel-body">
+													<div id="area-chart"></div>
+												</div>
+											</div>
+										</aside>
+									</div>
+									<div class="row">
+										<aside class="col-md-12">
+											<div class="panel panel-cs">
+												<div class="panel-heading"><h5 class="panel-title text-center">Conditional Bar Chart</h5></div>
+												<div class="panel-body">
+													<div id="conditonal-color-bar"></div>
+												</div>
+											</div>
+										</aside>
+									</div>
+								</div><!-- #dashboard-graphs.col-md-12 -->
+							</div>
+						</div><!-- pane-content-holder -->
+					</article><!-- #dashboard-wrapper.output-tab.tab-articles -->
+				</div>
+			</div>
+		</section>
+		<script src="./js/dashboard.js"></script>
+	</body>
+</html>
