@@ -7,15 +7,20 @@
 		<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet"  href="./css/main.css">
 		<link rel="stylesheet"  href="./css/new.css">
+		<link rel="stylesheet"  href="./css/dashboard.css">
 	
 		<script src="https://kit.fontawesome.com/93cd4d0f0f.js" crossorigin="anonymous"></script>	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+		
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/series-label.js"></script>
+		<script src="https://code.highcharts.com/highcharts-3d.js"></script>
 	</head>
 	<body>
-		<div id="loader" class="">
+		<div id="loader" class="hide">
 			<img src="./images/loader.gif" alt="Loader" />
 			<span id="loading-text">Loading Page...</span>
 		</div>
@@ -24,7 +29,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<aside class="col-md-8 col-md-offset-2 text-center" id="landing-header">
-							<span>Welcome To </span>
 							<span>Fraud Analytics</span>
 						</aside>
 					</div>
@@ -101,33 +105,116 @@
 								</div>
 							</article><!-- .input-tab.tab-articles -->
 							<article class='metrics-tab tab-articles'>
-								<ul class="list-group col-md-6"></ul>
-								<div class="col-md-12"><button type="button" class="btn btn-cs" id="start-analysis">Analyze</button></div>
+								<div class="col-md-12 pane-content-holder">
+									<ul class="list-group col-md-6"></ul>
+									<div class="col-md-12"><button type="button" class="btn btn-cs" id="start-analysis">Analyze</button></div>
+								</div>
 							</article><!-- .metrics-tab tab-articles -->
 
 							<article class='output-tab tab-articles'>
 								<div class="col-md-12 pane-content-holder">
 									<div class="table-responsive">
-										<table class="table table-bordered" id="output-table">
+										<table class="table table-striped table-bordered" id="output-table">
 											<thead></thead>
 											<tbody></tbody>
 										</table>
 									</div>
 								</div>
 							</article><!-- .output-tab.tab-articles -->
-							<article class='visualization-tab tab-articles'>
-								<dl>
-								  <dt>Guía de Transiciones Css</dt>
-								  <dd>Todas y cada una de las propiedades css que componen el grupo de las transitions con demos.</dd>
-								  <dt>@Font-face y sus problemas</dt>
-								  <dd>Los problemas más comunes y sus soluciones, que suelen presentarse al utilizar la regla @font-face de Css para mostrar los textos en tipografías distintas a las safety fonts.</dd>
-								</dl>
-							</article><!-- .output-tab.tab-articles -->
+							<article class='visualization-tab tab-articles'  id="dashboard-wrapper">
+								<div class="col-md-12 pane-content-holder">
+									<div class="row">
+										<div id="dashboard-filters" class="col-md-12 hide">
+											<div class="row">
+												<div class="col-md-12"><h4 class="section-title text-center"><i class="fas fa-filter"></i> Filters</h4></div>
+												<aside class="filter-card col-md-6" id="dateyear-selection">
+													<div class="row">
+														<aside class="col-md-6">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Year Range Slider
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-6">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Month Range Slider
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-12">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Date Range Slider
+																</div>
+															</div>
+														</aside>
+													</div>
+												</aside><!-- #dateyear-selection.filter-card.col-md-6 -->
+												<aside class="filter-card col-md-6">
+													<div class="row">
+														<aside class="col-md-4">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Campus Multi Select Box
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-4">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	LOB Multi Select Box
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-4">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Geo Multi Selection Box
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-4">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Tenure Bucket
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-4">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	Agent Filter
+																</div>
+															</div>
+														</aside>
+														<aside class="col-md-4">
+															<div class="panel panel-cs">
+																<div class="panel-body">
+																	TL Filter
+																</div>
+															</div>
+														</aside>
+													</div>
+												</aside><!-- .filter-card.col-md-6 -->
+											</div>
+										</div><!-- #dashboard-filters.col-md-12 -->
+										<div id="dashboard-graphs" class="col-md-12">
+											<div class="row" id="card-holder-row"></div>
+											<div class="row" id="graph-row-1"></div>
+											<div class="row" id="graph-row-2"></div>
+											<div class="row" id="graph-row-3"></div>
+										</div><!-- #dashboard-graphs.col-md-12 -->
+									</div>
+								</div><!-- pane-content-holder -->
+							</article><!-- #dashboard-wrapper.output-tab.tab-articles -->
 						</section>
 					</div><!-- .col-md-12 -->
 				</div><!-- .row -->
 			</div><!-- .container-fluid -->
 		</section><!-- #demo-section -->
 		<script src="./js/main.js"></script>
+		<script src="./js/dashboard.js"></script>
 	</body>
 </html>

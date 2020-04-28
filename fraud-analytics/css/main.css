@@ -59,14 +59,8 @@ video {
 	background-color : #221ECD;
 	border-color : #221ECD;
 }
+
 #landing-header span {
-	font-size: 4em;
-    text-shadow: 0px 1px 0px #fff;
-    margin: 0;
-    font-weight: 700;
-	font-family: 'Amaranth', sans-serif;
-}
-#landing-header span+span {
 	font-family: 'Courgette', cursive;
 	color: #d94957;
     font-size: 4em;
@@ -103,6 +97,9 @@ video {
 #how-it-works .btn-cs:hover {
 	background: #221ECD;
 	color: #FFFFFF;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+	background-color: #b9b8de;
 }
 
 .metrics-row-wrapper {

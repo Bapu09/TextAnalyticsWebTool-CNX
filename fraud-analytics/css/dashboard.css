@@ -27,6 +27,7 @@
 	background: #e2dfdf;
 	padding-top: 0.5em;
 	padding-bottom: 1em;
+	position: relative;
 }
 .panel-bg-gradient {
     position: relative;
