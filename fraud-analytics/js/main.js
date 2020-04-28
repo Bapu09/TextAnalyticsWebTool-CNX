@@ -20,13 +20,12 @@ jQuery(function() {
 	});
 	
 	jQuery('#tab-header-nav label').on('click', function() {
-		var target = jQuery(this).prop('for');
-		target = '.'+target+'-tab';
-		console.log('Taregt : '+target);
-		console.log('Target Length : '+jQuery(target).length)
-		var height = jQuery(target + ' .pane-content-holder')[0].scrollHeight;
-		console.log("Height : "+height);
-		jQuery('#tab-section').css('min-height', (height+100))
+		if(jQuery(this).hasClass('allow')) {
+			var target = jQuery(this).prop('for');
+			target = '.'+target+'-tab';
+			var height = jQuery(target + ' .pane-content-holder')[0].scrollHeight;
+			jQuery('#tab-section').css('min-height', (height+100))
+		}
 	})
 	
 	jQuery('.upload-tab #upload-file').on('click', function() {
@@ -43,9 +42,11 @@ jQuery(function() {
 			jQuery('#output-table').dataTable().fnDestroy();
 		}
 		clearTabs();
+		jQuery('#tab-section #output, #tab-section #visualization').attr('disabled', true);
+		jQuery('#tab-section label[for="output"], #tab-section label[for="visualization"]').addClass('disabled').removeClass('allow');
 		
 		jQuery('#tab-section #input, #tab-section #metrics').attr('disabled', false);
-		jQuery('#tab-section label[for="input"], #tab-section label[for="metrics"]').removeClass('disabled');
+		jQuery('#tab-section label[for="input"], #tab-section label[for="metrics"]').removeClass('disabled').addClass('allow');
 		var inputRows = processInputData(testData)
 		populateTable(inputRows, 'input-table', true);
 		jQuery('label[for="input"]').click()
@@ -82,7 +83,7 @@ jQuery(function() {
 			var inputRows = processInputData(testData)
 			populateTable(inputRows, 'output-table', false);
 			jQuery('#tab-section #output, #tab-section #visualization').attr('disabled', false);
-			jQuery('#tab-section label[for="output"], #tab-section label[for="visualization"]').removeClass('disabled');
+			jQuery('#tab-section label[for="output"], #tab-section label[for="visualization"]').removeClass('disabled').addClass('allow');
 			jQuery('label[for="output"]').click();
 			
 		} else {
