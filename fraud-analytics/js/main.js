@@ -92,8 +92,48 @@ jQuery(function() {
 		}
 		
 	})
+	
+	jQuery('#system-login').on('click', function() {
+		jQuery('#login-options').fadeOut('slow').addClass('hide')
+		jQuery('.login-form').fadeIn('slow').removeClass('hide');
+	});
+	jQuery('.login-form .form-control').on('focus', function() {
+		jQuery(this).parents('.form-group').removeClass('has-error');
+	})
+	jQuery('#submit-login').on('click', function() {
+		//Now Validation
+		var req = {};
+		var isValidated = false;
+		jQuery('.login-form .form-control').each(function() {
+			if(jQuery(this).val() == '' || jQuery(this).val() == null) {
+				jQuery(this).parents('.form-group').addClass('has-error')
+				showMessageModal('All fields are mandate', 'alert-warning')
+				isValidated = true;
+				return false;
+			} else {
+				req[jQuery(this).prop('name')] = jQuery(this).val();
+			}
+		});
+		if(isValidated == false) {
+			console.log('Login Req : '+JSON.stringify(req))
+			jQuery('.login-form .form-control').each(function() {
+				jQuery(this).parents('.form-group').addClass('has-success')
+			})
+		}
+	});
+	
+	//Reset alert box class on hide
+	jQuery('#message-modal').on('hide.bs.modal', function() {
+		jQuery(this).find('.alert').removeClass('alert-warning alert-success alert-danger alert-info')
+		
+	})
 })
 
+function showMessageModal(message, alertClass) {
+	jQuery('#message-modal .modal-body .alert').html(message);
+	jQuery('#message-modal .modal-body .alert').addClass(alertClass);
+	jQuery('#message-modal').modal('show');
+}
 function metricCheckboxEventListener() {
 	jQuery('.metrics-tab .list-group .checkbox label').on('click', function() {
 		console.log('Check Box Clicked');
