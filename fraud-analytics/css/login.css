@@ -7,6 +7,8 @@ body {
 #login-panel {
 	margin-top: 5%;
 	margin-right: 2em;
+	background: none;
+	border-color: #FFFFFF;
 }
 #login-panel .list-group-item:hover {
 	background: #93D7EA;
@@ -35,9 +37,19 @@ body {
 	max-width: 90%;
 }
 .logo {
-	margin-top: 40%;
+	margin-top: 20%;
     margin-right: 2em;
 }
 .logo img {
 	max-width: 70%;
 }
+#login-message {
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+#login-message .alert {
+	margin-bottom: 0;
+}
+/*8750898712*/
+

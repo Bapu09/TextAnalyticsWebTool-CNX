@@ -1,6 +1,7 @@
 <html>
 	<head>
-		<title>Fraud Analytics | LogIn</title>
+		<title>CIP-CNX | LogIn</title>
+		<link rel="icon" href="./images/favicon.png">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Amaranth:400,700|Just+Another+Hand" type="text/css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Fredoka+One&family=Great+Vibes&family=Lato:ital,wght@1,900&display=swap" >
@@ -38,18 +39,15 @@
 				<div class="row">
 					<aside class="col-md-4 pull-right">
 						<div class="logo text-center">
-							<img src="./images/logo.png" alt="logo">
+							<img src="./images/logo2.png" alt="logo">
 						</div>
 						<div class="panel" id="login-panel">
-							<div class="panel-heading">
-								<h5 class="panel-title text-center">Login</h5>
-							</div>
 							<div class="panel-body">
 								<ul class="list-group" id="login-options">
 									<li class="list-group-item">
 										<a href="javascript:void(0)" id="sso-login">
 											<span class="list-group-item-header">Concentrix Single Sign On</span>
-											<span class="list-group-item-body">Please use your Concentrix.com network credentials to sign in.  (john.doe@concentrix.com)  If you need assistance, with SSO or Workday log-in, contact the IT helpdesk at helpdesk@concentrix.com.</span>
+											<span class="list-group-item-body">Please use your Concentrix.com network credentials to sign in.  (john.doe@concentrix.com)  If you need assistance, with SSO or CIP log-in, contact the IT helpdesk at helpdesk@concentrix.com.</span>
 											<span class="chevron fas fa-chevron-right"></span>
 										</a>
 									</li>
@@ -60,7 +58,13 @@
 										</a>
 									</li>
 								</ul>
-								<form class="form login-form hide">
+								<form class="form login-form hide text-center">
+									<div id="login-message" class="hide">
+										<span class="fas fa-times-circle pull-right" id="hide-login-message"></span>
+										<div class="alert">
+											
+										</div>
+									</div>
 									<div class="form-group">
 										<input type="text" name="user_name" class="form-control" placeholder="Enter username">
 									</div>

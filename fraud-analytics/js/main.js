@@ -107,7 +107,7 @@ jQuery(function() {
 		jQuery('.login-form .form-control').each(function() {
 			if(jQuery(this).val() == '' || jQuery(this).val() == null) {
 				jQuery(this).parents('.form-group').addClass('has-error')
-				showMessageModal('All fields are mandate', 'alert-warning')
+				showLoginMessage('All fields are mandate', true)
 				isValidated = true;
 				return false;
 			} else {
@@ -116,6 +116,7 @@ jQuery(function() {
 		});
 		if(isValidated == false) {
 			console.log('Login Req : '+JSON.stringify(req))
+			showLoginMessage('Valid Login', false)
 			jQuery('.login-form .form-control').each(function() {
 				jQuery(this).parents('.form-group').addClass('has-success')
 			})
@@ -127,7 +128,21 @@ jQuery(function() {
 		jQuery(this).find('.alert').removeClass('alert-warning alert-success alert-danger alert-info')
 		
 	})
+	
+	jQuery('#hide-login-message').on('click', function() {
+		jQuery('#login-message').addClass('hide');
+	})
 })
+
+function showLoginMessage(message, isError) {
+	jQuery('#login-message .alert').html("<span>"+message+"</span>");
+	if(isError == true) {
+		jQuery('#login-message .alert').addClass('alert-warning');
+	} else {
+		jQuery('#login-message .alert').addClass('alert-success');
+	}
+	jQuery('#login-message').removeClass('hide');
+}
 
 function showMessageModal(message, alertClass) {
 	jQuery('#message-modal .modal-body .alert').html(message);
